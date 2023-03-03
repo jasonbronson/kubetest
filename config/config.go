@@ -47,7 +47,7 @@ type Config struct {
 
 func init() {
 	initEnv()
-	initDB()
+	//initDB()
 	initRedis()
 }
 
