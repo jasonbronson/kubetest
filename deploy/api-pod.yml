@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: apikube
+  namespace: default
+  labels:
+    app: apikube
+spec:
+  containers:
+  - name: goapp
+    image: "github.com/jasonbronson/kubetest"
+    resources:
+      limits:
+        cpu: 200m
+        memory: 500Mi
+      requests:
+        cpu: 100m
+        memory: 200Mi
+    ports:
+    - containerPort:  8080
+    env:
+      - name: REDIS_URL
+        value: "redis://h@redis:6379"
+      - name: PORT 
+        value: "8080"
